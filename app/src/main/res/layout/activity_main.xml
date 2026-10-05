@@ -101,7 +101,7 @@
                 android:background="@drawable/status_header_bg"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp">
-                <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/text_secondary" android:textSize="13sp" android:lineSpacingExtra="2dp" />
+                <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/text_secondary" android:textSize="13sp" android:lineSpacingExtra="2dp" android:paddingLeft="8dp" android:paddingRight="8dp" android:paddingTop="2dp" android:paddingBottom="2dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -110,9 +110,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/tonal_bg"
-                android:layout_marginTop="13dp">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/current_value_title" android:textColor="@color/text_secondary" android:textSize="10sp" android:textStyle="bold" />
-                <TextView android:id="@+id/currentValueText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/text_primary" android:textSize="12sp" android:fontFamily="monospace" android:textIsSelectable="true" android:paddingTop="4dp" />
+                android:layout_marginTop="13dp"
+                android:paddingBottom="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/current_value_title" android:textColor="@color/text_secondary" android:textSize="10sp" android:textStyle="bold" android:paddingLeft="8dp" android:paddingTop="6dp" />
+                <TextView android:id="@+id/currentValueText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/text_primary" android:textSize="12sp" android:fontFamily="monospace" android:textIsSelectable="true" android:paddingLeft="8dp" android:paddingRight="8dp" android:paddingTop="4dp" />
             </LinearLayout>
         </com.reed.fcmguard.CollapsingStatusCard>
     </FrameLayout>
