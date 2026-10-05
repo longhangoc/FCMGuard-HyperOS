@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="README.md"><strong>English</strong></a> · <a href="README.zh-CN.md">简体中文</a>
+  <a href="README.md"><strong>English</strong></a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
 <p align="center">
@@ -13,9 +13,9 @@
 **Designed for:** China-market Xiaomi / Redmi / POCO phones with Google Play services already installed and working.
 
 <p align="center">
-  <a href="https://github.com/ReedGAOOO/FCMGuard-HyperOS/releases/latest/download/FCMGuard-HyperOS.apk"><strong>Download latest APK</strong></a>
+  <a href="https://github.com/longhangoc/FCMGuard-HyperOS/releases/latest/download/FCMGuard-HyperOS.apk"><strong>Download latest APK</strong></a>
   ·
-  <a href="https://github.com/ReedGAOOO/FCMGuard-HyperOS/releases/latest">Latest release</a>
+  <a href="https://github.com/longhangoc/FCMGuard-HyperOS/releases/latest">Latest release</a>
 </p>
 
 ## Highlights
@@ -167,7 +167,7 @@ GitHub Actions checks responsive layout profiles and builds a signed debug APK. 
 
 For normal phone installation, use:
 
-**https://github.com/ReedGAOOO/FCMGuard-HyperOS/releases/latest/download/FCMGuard-HyperOS.apk**
+**https://github.com/longhangoc/FCMGuard-HyperOS/releases/latest/download/FCMGuard-HyperOS.apk**
 
 ## License
 

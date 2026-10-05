@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="README.md">English</a> · <a href="README.zh-CN.md"><strong>简体中文</strong></a>
+  <a href="README.md">English</a> · <a href="README.zh-CN.md"><strong>简体中文</strong></a> · <a href="README.vi.md">Tiếng Việt</a>
 </p>
 
 <p align="center">
@@ -13,9 +13,9 @@
 **适用范围：** 中国大陆销售、运行 **HyperOS 3 中国版 ROM** 的 Xiaomi / Redmi / POCO 手机，且 Google Play 服务已经正常安装并可使用。
 
 <p align="center">
-  <a href="https://github.com/ReedGAOOO/FCMGuard-HyperOS/releases/latest/download/FCMGuard-HyperOS.apk"><strong>直接下载最新版 APK</strong></a>
+  <a href="https://github.com/longhangoc/FCMGuard-HyperOS/releases/latest/download/FCMGuard-HyperOS.apk"><strong>直接下载最新版 APK</strong></a>
   ·
-  <a href="https://github.com/ReedGAOOO/FCMGuard-HyperOS/releases/latest">查看最新 Release</a>
+  <a href="https://github.com/longhangoc/FCMGuard-HyperOS/releases/latest">查看最新 Release</a>
 </p>
 
 ## 亮点
@@ -170,7 +170,7 @@ GitHub Actions 会自动检查响应式布局并构建签名后的 debug APK。p
 
 手机用户建议直接使用固定最新版地址：
 
-**https://github.com/ReedGAOOO/FCMGuard-HyperOS/releases/latest/download/FCMGuard-HyperOS.apk**
+**https://github.com/longhangoc/FCMGuard-HyperOS/releases/latest/download/FCMGuard-HyperOS.apk**
 
 ## License
 
