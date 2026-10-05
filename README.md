@@ -158,6 +158,7 @@ Cuộc điều tra PowerKeeper / Greezer và chiến lược sửa `MILLET_NO_RE
 
 - HyperOS FCM Fix của `dingwen07`: https://github.com/dingwen07/hyperos-fcm-fix
 - Tài liệu điều tra kỹ thuật: https://github.com/dingwen07/hyperos-fcm-fix/blob/main/docs/xiaomi-hyperos-gms-fcm-greezer-investigation.md
+- Bản dịch tiếng Việt của tài liệu trên (GPL-3.0, kèm ghi công): [docs/xiaomi-hyperos-gms-fcm-greezer-investigation.vi.md](docs/xiaomi-hyperos-gms-fcm-greezer-investigation.vi.md)
 
 FCM Guard là bản triển khai độc lập tập trung vào việc không cần Shizuku/root, đặc quyền tối thiểu, giám sát theo sự kiện và hoạt động nền nhàn rỗi thấp. Không có mã nguồn nào của HyperOS FCM Fix được sao chép vào repo này.
 
