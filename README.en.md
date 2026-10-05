@@ -22,9 +22,9 @@
 
 - **No root or Shizuku** — uses the user-grantable **Modify system settings** permission instead of root, persistent ADB, Accessibility, VPN, overlay, or device-admin privileges.
 - **Finance-app friendly** — keeps the implementation deliberately low-privilege for better compatibility with security-sensitive apps.
-- **Low background power** — exact event-driven monitoring is the main path; the 30-minute fallback is in-process and does not deliberately wake a sleeping phone.
+- **Low background power** — exact event-driven monitoring is the main path; quiet 15-minute JobScheduler checks replace polling and never deliberately wake a sleeping phone.
 - **Reconnects only when needed** — FCM/MCS reconnect broadcasts are sent only after a real whitelist repair or a manual request.
-- **Optional persistent notification** — foreground mode uses a visible-but-silent notification channel for stronger process survival; quiet background mode remains available.
+- **Smart guard modes** — Auto starts with close watching, relaxes into silent scheduled checks after 24 quiet hours, and re-tightens on the first real break; Always and Saving give manual control.
 - **FCM app assistant** — scans likely Firebase/GCM clients and, when HyperOS exposes the vendor AppOps state, shows read-only Autostart status with automatic re-check after returning from system settings.
 - **Native dark mode** — System / Light / Dark, with **System** as the default.
 - **11-language UI** — English, Simplified Chinese, Traditional Chinese, French, Japanese, Korean, Spanish, Portuguese, German, Russian, and Vietnamese through Android's native per-app language mechanism.
@@ -37,7 +37,7 @@
 3. Tap **Repair now** once.
 4. Enable **Automatic protection**.
 5. In HyperOS, enable **Autostart** for FCM Guard and set battery policy to **No restrictions**.
-6. Keep **Persistent notification** enabled for maximum survival reliability. If Android/HyperOS blocks notifications for FCM Guard, the app opens the system notification settings so the foreground notification can be enabled.
+6. Pick a **Guard mode**. **Auto** (recommended) watches closely at first, relaxes after 24 quiet hours, and re-tightens on the first real break; **Always** keeps the persistent notification; **Saving** uses silent scheduled checks only. When close watching is active and notifications are blocked, the app opens system notification settings so the foreground notification can be enabled.
 7. Optional: scan **FCM apps**. If HyperOS exposes readable Autostart state, the list marks apps as Enabled / Partial / Disabled / Unknown and refreshes after you return from **Configure all in HyperOS**. If the ROM blocks the query, FCM Guard shows a clear Unknown/unavailable fallback instead of guessing.
 8. Optional: tap **Open FCM diagnostics** to open Google Play services diagnostics and inspect the `mtalk.google.com:5228` connection.
 9. If one app still receives notifications late while other FCM apps are normal, configure that app separately. For apps such as **WhatsApp**, set **Battery saver / Battery optimization → No restrictions** in HyperOS; enabling **Autostart** is also recommended when available.
@@ -87,9 +87,11 @@ FCM Guard intentionally uses `compileSdk 35` with `targetSdk 22`. The modern com
 - No write when GMS is already present.
 - No reconnect broadcast unless a repair actually happened or the user requests one.
 
-## Persistent notification
+## Guard modes and scheduled checks
 
-Persistent mode runs `GuardService` as a foreground service. The current implementation uses a dedicated `IMPORTANCE_LOW`, silent notification channel so the notification remains visible without sound or vibration. Because FCM Guard deliberately targets SDK 22, Android 13+ controls the notification-permission prompt timing; if notifications are already blocked, FCM Guard links directly to the app's system notification settings.
+The protection runs in one of two architectures. **Close watching** runs `GuardService` as a foreground service on a dedicated `IMPORTANCE_LOW`, silent notification channel, with a `ContentObserver` that repairs overwrites within ~400 ms. **Saving** mode has no resident process: a persisted JobScheduler job runs every 15 minutes, repairs once, listens for ~90 seconds for the rewrites that follow a PowerKeeper regeneration, then releases the process. HyperOS killing the app costs the scheduled path nothing.
+
+**Auto** starts in close watching, relaxes into saving mode after 24 quiet hours, and upgrades again on the first real overwrite (a repair that actually wrote the whitelist). Storm backoff lengthens repeated repairs (400 ms → 2 s → 5 s → 10 s → 20 s → 40 s → 60 s) so continuous overwrites cannot burn battery. Because FCM Guard targets SDK 22, Android 13+ controls notification-permission prompt timing; if notifications are blocked, FCM Guard links to the app's system notification settings.
 
 ## FCM diagnostics
 

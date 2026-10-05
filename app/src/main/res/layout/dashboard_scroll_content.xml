@@ -18,8 +18,13 @@
         <Switch android:id="@+id/protectionSwitch" android:layout_width="match_parent" android:layout_height="48dp" android:text="@string/automatic_protection" android:textColor="@color/text_primary" android:textSize="15sp" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/automatic_protection_summary" android:textColor="@color/text_secondary" android:textSize="12sp" android:lineSpacingExtra="2dp" />
         <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginTop="12dp" android:layout_marginBottom="4dp" />
-        <Switch android:id="@+id/notificationSwitch" android:layout_width="match_parent" android:layout_height="48dp" android:text="@string/persistent_notification" android:textColor="@color/text_primary" android:textSize="15sp" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/persistent_notification_summary" android:textColor="@color/text_secondary" android:textSize="12sp" android:lineSpacingExtra="2dp" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingTop="6dp" android:text="@string/guard_mode_label" android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold" />
+        <RadioGroup android:id="@+id/guardModeGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+            <RadioButton android:id="@+id/guardModeAuto" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:text="@string/guard_mode_auto" android:textColor="@color/text_primary" android:textSize="12sp" />
+            <RadioButton android:id="@+id/guardModeAlways" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:text="@string/guard_mode_always" android:textColor="@color/text_primary" android:textSize="12sp" />
+            <RadioButton android:id="@+id/guardModeSaving" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:text="@string/guard_mode_saving" android:textColor="@color/text_primary" android:textSize="12sp" />
+        </RadioGroup>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/guard_mode_summary" android:textColor="@color/text_secondary" android:textSize="12sp" android:lineSpacingExtra="2dp" />
     </LinearLayout>
 
     <LinearLayout

@@ -22,9 +22,9 @@
 
 - **Không cần root hay Shizuku** — chỉ dùng quyền **Sửa đổi cài đặt hệ thống** mà người dùng có thể tự cấp, thay vì root, ADB thường trực, Accessibility, VPN, overlay hay quyền quản trị thiết bị.
 - **Thân thiện với app tài chính** — giữ chủ ý mức đặc quyền thấp để tương thích tốt với các app nhạy cảm về bảo mật.
-- **Ít tốn pin khi chạy nền** — giám sát theo sự kiện chính xác là đường chính; kiểm tra dự phòng 30 phút chạy ngay trong tiến trình và không chủ động đánh thức điện thoại đang ngủ.
+- **Ít tốn pin khi chạy nền** — giám sát theo sự kiện chính xác là đường chính; các lần kiểm tra định kỳ 15 phút qua JobScheduler im lặng thay thế hoàn toàn việc poll và không chủ động đánh thức điện thoại đang ngủ.
 - **Chỉ kết nối lại khi cần** — yêu cầu kết nối lại FCM/MCS chỉ được gửi sau khi thực sự sửa danh sách trắng hoặc khi người dùng chủ động yêu cầu.
-- **Thông báo thường trực tùy chọn** — chế độ nền trước dùng kênh thông báo hiển thị nhưng im lặng để tăng độ bền của tiến trình; vẫn có thể dùng chế độ chỉ chạy nền, im lặng.
+- **Chế độ gác thông minh** — Tự động bắt đầu bằng gác sát, nới thành kiểm tra định kỳ im lặng sau 24 giờ yên tĩnh, và siết lại ngay ở lần phá đầu tiên; Luôn gác và Tiết kiệm cho bạn toàn quyền kiểm soát.
 - **Trợ lý app FCM** — quét các app có khả năng là client Firebase/GCM và, khi HyperOS cho phép đọc trạng thái AppOps của nhà sản xuất, hiển thị trạng thái Tự khởi động ở chế độ chỉ đọc, tự kiểm tra lại sau khi bạn quay về từ cài đặt hệ thống.
 - **Chế độ tối gốc Android** — Theo hệ thống / Sáng / Tối, mặc định **Theo hệ thống**.
 - **Giao diện 11 ngôn ngữ** — tiếng Anh, tiếng Trung giản thể, tiếng Trung phồn thể, tiếng Pháp, tiếng Nhật, tiếng Hàn, tiếng Tây Ban Nha, tiếng Bồ Đào Nha, tiếng Đức, tiếng Nga và tiếng Việt, qua cơ chế ngôn ngữ theo ứng dụng gốc của Android.
@@ -37,7 +37,7 @@
 3. Chạm **Sửa ngay** một lần.
 4. Bật **Bảo vệ tự động**.
 5. Trong HyperOS, bật **Tự khởi động** cho FCM Guard và đặt chính sách pin thành **Không giới hạn**.
-6. Giữ **Thông báo thường trực** bật để đạt độ bền tối đa. Nếu Android/HyperOS chặn thông báo của FCM Guard, app sẽ mở thẳng cài đặt thông báo hệ thống để bạn bật thông báo nền trước.
+6. Chọn **Chế độ gác**. **Tự động** (khuyến nghị): gác sát lúc đầu, nới sau 24 giờ yên tĩnh và siết lại ngay ở lần phá đầu tiên; **Luôn gác**: giữ thông báo thường trực để sống bám tối đa; **Tiết kiệm**: chỉ kiểm tra định kỳ im lặng. Khi gác sát đang bật mà thông báo bị chặn, app sẽ mở thẳng cài đặt thông báo hệ thống để bạn bật thông báo nền trước.
 7. Tùy chọn: quét **Ứng dụng FCM**. Nếu HyperOS cho phép đọc trạng thái Tự khởi động, danh sách sẽ đánh dấu app là Đã bật / Một phần / Đã tắt / Không rõ và tự cập nhật sau khi bạn quay về từ **Cấu hình tất cả trong HyperOS**. Nếu ROM chặn truy vấn, FCM Guard hiển thị trạng thái Không rõ/không khả dụng thay vì đoán bừa.
 8. Tùy chọn: chạm **Mở chẩn đoán FCM** để vào màn hình chẩn đoán của Google Play services và xem kết nối `mtalk.google.com:5228`.
 9. Nếu chỉ một app vẫn nhận thông báo chậm trong khi các app FCM khác bình thường, hãy cấu hình riêng app đó. Với các app như **WhatsApp**, đặt **Trình tiết kiệm pin / Tối ưu hóa pin → Không giới hạn** trong HyperOS; cũng nên bật **Tự khởi động** cho app đó khi có tùy chọn.
@@ -87,9 +87,11 @@ FCM Guard cố ý dùng `compileSdk 35` với `targetSdk 22`. Compile SDK hiện
 - Không ghi khi GMS đã có sẵn.
 - Không gửi broadcast kết nối lại trừ khi thực sự có sửa chữa hoặc người dùng yêu cầu.
 
-## Thông báo thường trực
+## Chế độ gác và kiểm tra định kỳ
 
-Chế độ thường trực chạy `GuardService` như một dịch vụ trên nền trước. Bản hiện tại dùng kênh thông báo riêng `IMPORTANCE_LOW`, im lặng, nên thông báo luôn hiển thị nhưng không có âm thanh hay rung. Vì FCM Guard chủ đích nhắm SDK 22, Android 13+ kiểm soát thời điểm hỏi quyền thông báo; nếu thông báo đã bị chặn, FCM Guard dẫn thẳng tới trang cài đặt thông báo hệ thống của app.
+Bảo vệ chạy theo một trong hai kiến trúc. **Gác sát** chạy `GuardService` như dịch vụ trên nền trước với kênh thông báo `IMPORTANCE_LOW` im lặng riêng, kèm `ContentObserver` sửa lại trong ~400 ms. **Tiết kiệm** không có tiến trình thường trú: một job JobScheduler bền vững chạy mỗi 15 phút, sửa một lần, nghe thêm ~90 giây cho các lần ghi đè thường theo sau PowerKeeper dựng lại danh sách, rồi nhả tiến trình. HyperOS giết app không làm hỏng đường định kỳ này.
+
+**Tự động** bắt đầu bằng gác sát, nới sang tiết kiệm sau 24 giờ yên tĩnh, và nâng lại ngay ở lần phá thật đầu tiên (lần sửa thực sự ghi whitelist). Backoff chống bão kéo dài khoảng cách giữa các lần sửa liên tiếp (400 ms → 2 s → 5 s → 10 s → 20 s → 40 s → 60 s) nên bão ghi đè không đốt được pin. Vì FCM Guard nhắm SDK 22, Android 13+ kiểm soát thời điểm hỏi quyền thông báo; nếu thông báo bị chặn, FCM Guard dẫn tới trang cài đặt thông báo hệ thống của app.
 
 ## Chẩn đoán FCM
 

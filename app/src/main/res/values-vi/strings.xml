@@ -20,7 +20,7 @@
 
     <string name="protection_title">Bảo vệ</string>
     <string name="automatic_protection">Bảo vệ tự động</string>
-    <string name="automatic_protection_summary">Giám sát theo sự kiện chỉ trên khóa danh sách trắng FCM. Kiểm tra dự phòng 30 phút không đánh thức thiết bị, chỉ dùng như bảo hiểm.</string>
+    <string name="automatic_protection_summary">Giám sát theo sự kiện chỉ trên khóa danh sách trắng FCM, kèm các lần kiểm tra định kỳ im lặng làm bảo hiểm. Tự chuyển sang gác sát khi ROM có hành vi xấu.</string>
     <string name="persistent_notification">Thông báo thường trực</string>
     <string name="persistent_notification_summary">Nên BẬT để đạt độ tin cậy tối đa. Tắt để bỏ thông báo thường trực và dùng chế độ chỉ chạy nền; khi đó HyperOS có thể dễ dàng dừng dịch vụ hơn.</string>
     <string name="actions_title">Công cụ</string>
@@ -57,4 +57,11 @@
     <string name="notification_channel_description">Thông báo ưu tiên thấp giúp duy trì độ tin cậy của bảo vệ FCM tự động</string>
     <string name="notification_active">Bảo vệ đang hoạt động · theo sự kiện</string>
     <string name="notification_repaired">Đã sửa danh sách trắng · FCM được bảo vệ</string>
+    <string name="guard_mode_label">Chế độ gác</string>
+    <string name="guard_mode_auto">Tự động</string>
+    <string name="guard_mode_always">Luôn gác</string>
+    <string name="guard_mode_saving">Tiết kiệm</string>
+    <string name="guard_mode_summary">Tự động: gác sát lúc đầu, nới thành kiểm tra định kỳ sau 24 giờ yên tĩnh, và gác sát lại ngay từ lần phá đầu tiên. Luôn gác: gác sát liên tục với thông báo thường trực. Tiết kiệm: chỉ kiểm tra định kỳ, không thông báo, tốn pin ít nhất.</string>
+    <string name="state_guard_vigilant">Chế độ gác: sát sao</string>
+    <string name="state_guard_quiet">Chế độ gác: định kỳ</string>
 </resources>
