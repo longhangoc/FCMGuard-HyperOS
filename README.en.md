@@ -28,6 +28,7 @@
 - **FCM app assistant** — scans likely Firebase/GCM clients and, when HyperOS exposes the vendor AppOps state, shows read-only Autostart status with automatic re-check after returning from system settings.
 - **Native dark mode** — System / Light / Dark, with **System** as the default.
 - **11-language UI** — English, Simplified Chinese, Traditional Chinese, French, Japanese, Korean, Spanish, Portuguese, German, Russian, and Vietnamese through Android's native per-app language mechanism.
+- **In-app updates** — checks GitHub Releases once every 24 hours plus a manual button; downloads and opens the installer directly, no GitHub visit needed.
 - **Compact-phone ready** — responsive layout checks cover 320–480dp widths, including a Xiaomi 17-class 393dp profile.
 
 ## Quick setup

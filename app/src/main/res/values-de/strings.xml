@@ -64,4 +64,14 @@
     <string name="guard_mode_summary">Auto: wacht zuerst engmaschig, lockert nach 24 ruhigen Stunden zu geplanten Prüfungen und kehrt bei der ersten echten Manipulation sofort zurück. Immer: engmaschige Überwachung mit dauerhafter Benachrichtigung. Sparen: nur geplante Prüfungen, ohne Benachrichtigung, minimaler Akkuverbrauch.</string>
     <string name="state_guard_vigilant">Wachmodus: engmaschig</string>
     <string name="state_guard_quiet">Wachmodus: geplant</string>
+    <string name="update_check">Nach Updates suchen</string>
+    <string name="update_checking">Suche nach Updates…</string>
+    <string name="update_downloading">Update wird heruntergeladen…</string>
+    <string name="update_latest">Du nutzt die neueste Version</string>
+    <string name="update_available_title">Update verfügbar: %1$s</string>
+    <string name="update_available_body">Eine neuere FCM Guard-Version wurde auf GitHub Releases veröffentlicht. Jetzt herunterladen und installieren?</string>
+    <string name="update_download">Herunterladen &amp; installieren</string>
+    <string name="update_download_failed">Update-Prüfung oder Download fehlgeschlagen</string>
+    <string name="update_installing">Installationsprogramm wird geöffnet…</string>
+    <string name="update_need_permission">Erlaube FCM Guard die Installation unbekannter Apps und tippe erneut auf Suchen</string>
 </resources>

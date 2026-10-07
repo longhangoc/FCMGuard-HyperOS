@@ -109,12 +109,14 @@ public class MainActivity extends Activity {
         setupSwitches();
         bindActions();
         refreshStatus(null);
+        UpdateChecker.autoCheck(this);
     }
 
     @Override protected void onResume() {
         super.onResume();
         configureFullEdgeToEdge();
         startLanguageButtonAnimation();
+        UpdateChecker.resumePendingInstall(this);
         if (SettingsGuard.isProtectionEnabled(this)) {
             SmartGuardController.checkDowngrade(this);
             SmartGuardController.apply(this);
@@ -359,6 +361,7 @@ public class MainActivity extends Activity {
         });
 
         findViewById(R.id.diagBtn).setOnClickListener(v -> openFcmDiagnostics());
+        findViewById(R.id.updateCheckBtn).setOnClickListener(v -> runManualUpdateCheck());
         scanFcmAppsBtn.setOnClickListener(v -> toggleFcmAppsList());
         findViewById(R.id.openAutostartBtn).setOnClickListener(v -> {
             if (!HyperOsSettings.openAutoStartManager(this)) {
@@ -530,6 +533,15 @@ public class MainActivity extends Activity {
         background.setColor(getResources().getColor(color));
         background.setCornerRadius(dp(12));
         return background;
+    }
+
+    private void runManualUpdateCheck() {
+        ProgressDialog progress = new ProgressDialog(this);
+        progress.setMessage(getString(R.string.update_checking));
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setCancelable(true);
+        progress.show();
+        UpdateChecker.manualCheck(this, progress);
     }
 
     private void ensurePersistentNotificationAccess() {

@@ -28,6 +28,7 @@
 - **Trợ lý app FCM** — quét các app có khả năng là client Firebase/GCM và, khi HyperOS cho phép đọc trạng thái AppOps của nhà sản xuất, hiển thị trạng thái Tự khởi động ở chế độ chỉ đọc, tự kiểm tra lại sau khi bạn quay về từ cài đặt hệ thống.
 - **Chế độ tối gốc Android** — Theo hệ thống / Sáng / Tối, mặc định **Theo hệ thống**.
 - **Giao diện 11 ngôn ngữ** — tiếng Anh, tiếng Trung giản thể, tiếng Trung phồn thể, tiếng Pháp, tiếng Nhật, tiếng Hàn, tiếng Tây Ban Nha, tiếng Bồ Đào Nha, tiếng Đức, tiếng Nga và tiếng Việt, qua cơ chế ngôn ngữ theo ứng dụng gốc của Android.
+- **Cập nhật ngay trong app** — tự kiểm tra GitHub Releases mỗi 24 giờ và có nút kiểm tra thủ công; tải về mở trình cài luôn, không cần mở GitHub.
 - **Sẵn sàng cho máy màn nhỏ** — kiểm tra bố cục tương thích cho độ rộng 320–480dp, gồm cả profile 393dp kiểu Xiaomi 17.
 
 ## Thiết lập nhanh

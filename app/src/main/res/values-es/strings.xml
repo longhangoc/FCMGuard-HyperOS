@@ -64,4 +64,14 @@
     <string name="guard_mode_summary">Auto: vigila de cerca al principio, se relaja a comprobaciones programadas tras 24 horas en calma y vuelve a vigilar de cerca ante la primera alteración real. Siempre: vigilancia continua con la notificación permanente. Ahorro: solo comprobaciones programadas, sin notificación, mínimo consumo.</string>
     <string name="state_guard_vigilant">Modo de vigilancia: continua</string>
     <string name="state_guard_quiet">Modo de vigilancia: programada</string>
+    <string name="update_check">Buscar actualizaciones</string>
+    <string name="update_checking">Buscando actualizaciones…</string>
+    <string name="update_downloading">Descargando actualización…</string>
+    <string name="update_latest">Ya tienes la versión más reciente</string>
+    <string name="update_available_title">Actualización disponible: %1$s</string>
+    <string name="update_available_body">Hay una versión más reciente de FCM Guard publicada en GitHub Releases. ¿Descargarla e instalarla ahora?</string>
+    <string name="update_download">Descargar e instalar</string>
+    <string name="update_download_failed">Error al comprobar o descargar la actualización</string>
+    <string name="update_installing">Abriendo el instalador…</string>
+    <string name="update_need_permission">Permite que FCM Guard instale apps de fuentes desconocidas y vuelve a pulsar Buscar</string>
 </resources>

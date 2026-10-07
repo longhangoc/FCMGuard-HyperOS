@@ -64,4 +64,14 @@
     <string name="guard_mode_summary">Tự động: gác sát lúc đầu, nới thành kiểm tra định kỳ sau 24 giờ yên tĩnh, và gác sát lại ngay từ lần phá đầu tiên. Luôn gác: gác sát liên tục với thông báo thường trực. Tiết kiệm: chỉ kiểm tra định kỳ, không thông báo, tốn pin ít nhất.</string>
     <string name="state_guard_vigilant">Chế độ gác: sát sao</string>
     <string name="state_guard_quiet">Chế độ gác: định kỳ</string>
+    <string name="update_check">Kiểm tra bản cập nhật</string>
+    <string name="update_checking">Đang kiểm tra bản cập nhật…</string>
+    <string name="update_downloading">Đang tải bản cập nhật…</string>
+    <string name="update_latest">Bạn đang dùng bản mới nhất</string>
+    <string name="update_available_title">Có bản mới: %1$s</string>
+    <string name="update_available_body">FCM Guard đã có phiên bản mới trên GitHub Releases. Tải về và cài đặt ngay?</string>
+    <string name="update_download">Tải về và cài đặt</string>
+    <string name="update_download_failed">Kiểm tra hoặc tải bản cập nhật thất bại</string>
+    <string name="update_installing">Đang mở trình cài đặt…</string>
+    <string name="update_need_permission">Hãy cho phép FCM Guard cài ứng dụng không rõ nguồn, rồi bấm kiểm tra lại</string>
 </resources>

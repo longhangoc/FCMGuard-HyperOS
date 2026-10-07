@@ -64,4 +64,14 @@
     <string name="guard_mode_summary">Auto : surveillance rapprochée au début, assouplie en vérifications planifiées après 24 heures calmes, et retour immédiat à la surveillance rapprochée dès la première vraie altération. Toujours : surveillance continue avec notification permanente. Éco : vérifications planifiées uniquement, sans notification, consommation minimale.</string>
     <string name="state_guard_vigilant">Mode de garde : rapprochée</string>
     <string name="state_guard_quiet">Mode de garde : planifiée</string>
+    <string name="update_check">Rechercher des mises à jour</string>
+    <string name="update_checking">Recherche de mises à jour…</string>
+    <string name="update_downloading">Téléchargement de la mise à jour…</string>
+    <string name="update_latest">Vous utilisez la dernière version</string>
+    <string name="update_available_title">Mise à jour disponible : %1$s</string>
+    <string name="update_available_body">Une version plus récente de FCM Guard est publiée sur GitHub Releases. Télécharger et installer maintenant ?</string>
+    <string name="update_download">Télécharger et installer</string>
+    <string name="update_download_failed">Échec de la vérification ou du téléchargement</string>
+    <string name="update_installing">Ouverture du programme d\'installation…</string>
+    <string name="update_need_permission">Autorisez FCM Guard à installer des applications de sources inconnues, puis appuyez à nouveau sur Rechercher</string>
 </resources>
